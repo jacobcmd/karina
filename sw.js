@@ -53,15 +53,15 @@ self.addEventListener('activate', e =>{
 
 //Evento fetch
 
-self.addEventListener('fetch', e => {
+self.addEventListener("fetch", (e) => {
+    console.log("fetch! ", e.request);
     e.respondWith(
-        caches.match(e.request)
-            .then(res => {
-                if(res){
-                    //devuelvo los datos desde cache
-                    return res;
-                }
-                return fetch(e.request);
-            })
+      caches
+        .match(e.request)
+        .then((res) => {
+          return res || fetch(e.request);
+        })
+        .catch(console.log)
     );
-});
+    //   e.waitUntil(response);
+  });
