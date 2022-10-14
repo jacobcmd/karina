@@ -4,7 +4,7 @@ const CACHE_NAME = 'v1_cache_awp';
 //configurar los archivos del cache
 
 var urlToCache = [
-    "/",
+    //"/",
     "index.html",
     "main.js",
     "images/1.png",
